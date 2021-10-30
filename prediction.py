@@ -81,6 +81,7 @@ class Classify:
             self.model.cpu()
 
         ids_to_labels = {v: k for k, v in self.checkpoint["labels_dict"].items()}
+
         pure_input_message = clear_text_for_classification(user_input)
 
         data_dict = self.get_data_from_input(pure_input_message, self.checkpoint['max_len'])
