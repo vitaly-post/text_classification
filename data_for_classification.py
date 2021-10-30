@@ -22,12 +22,12 @@ class DataForClassification:
         self.batch_size = 100
 
     def read_data(self):
-        #df = pd.read_csv(self.datapath, delimiter=',', header=None, usecols=[3, 5], names=['label', 'sentence'], skiprows=1, nrows=100)
-        df = pd.read_csv(self.datapath, delimiter=',', header=None, usecols=[3, 5], names=['label', 'sentence'], skiprows=1)
+        #df = pd.read_csv(self.datapath, delimiter=',', header=None, usecols=[1, 2], names=['label', 'sentence'], skiprows=1, nrows=100)
+        df = pd.read_csv(self.datapath, delimiter=',', header=None, usecols=[1, 2], names=['label', 'sentence'], skiprows=1)
         #df = pd.read_csv(self.datapath, delimiter=',', usecols=['topics', 'title'], nrows=20)
         print(df.head)
 
-        df.to_csv(self.datapath, sep=',', encoding='utf-8')
+        #df.to_csv(self.datapath, sep=',', encoding='utf-8')
 
         sentences = df.sentence.str.strip().values
         labels = df.label.str.strip().values
