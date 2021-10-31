@@ -27,6 +27,8 @@ class DataForClassification:
         #df = pd.read_csv(self.datapath, delimiter=',', usecols=['topics', 'title'], nrows=20)
         print(df.head)
 
+        self.get_class_distribution()
+
         #df.to_csv(self.datapath, sep=',', encoding='utf-8')
 
         sentences = df.sentence.str.strip().values
@@ -122,7 +124,7 @@ class DataForClassification:
         return labels_to_ids, ids_to_labels
 
     def get_class_distribution(self):
-        df = pd.read_csv(self.datapath, delimiter=',', header=None, names=['sentence', 'label'], skiprows=1)
+        df = pd.read_csv(self.datapath, delimiter=',', header=None, names=['label', 'sentence'], skiprows=1)
 
         labels = df.label.str.strip().values
 
